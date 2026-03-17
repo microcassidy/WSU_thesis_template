@@ -1,6 +1,5 @@
 # Ignore all LaTeX produced files
-
-*.aux
+!*.dummy
 *.bbl
 *.blg
 *.lot
@@ -8,3 +7,15 @@
 *.log
 *.synctex.gz
 *.toc
+/auto
+.DS_STORE
+
+
+#EXCEPTIONS
+.aux/*.aux
+*.bcf
+.aux/*.fls
+.aux/*.xml
+.aux/*.xdv
+*.fdb_latexmk
+.aux/*.xdv

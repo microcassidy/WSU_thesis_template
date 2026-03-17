@@ -7,31 +7,30 @@
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \documentclass[a4paper,11pt]{book}
-
-\usepackage[T1]{fontenc}
-\usepackage[utf8]{inputenc}
+% \usepackage[T1]{fontenc}
+% \usepackage[utf8]{inputenc}
 % % Uncomment for bibliography
 % % Bibliography using Biblatex
-%\usepackage{doi}
-%\usepackage[autostyle]{csquotes}
+\usepackage{doi}
+\usepackage[autostyle]{csquotes}
 % \usepackage[
 %     backend=biber,
-%     style=authoryear,
+%     style=ieee,
 %     natbib=true,
 %     firstinits=true,
 %     sortlocale=en_US,
-%     url=false, 
+%     url=false,
 %     doi=true,
 %     eprint=false,
 %     isbn=false
 % ]{biblatex}
-%\addbibresource{tail/bibliography.bib}
-% % OR Bibliography management for Bibtex 
+\usepackage[style=ieee,backref=true]{biblatex}
+% % OR Bibliography management for Bibtex
 % Load natbib before babel
-\usepackage[round]{natbib}
+% \usepackage[round]{natbib}
+% myName
+\usepackage[english]{babel}
 
-
-\usepackage[french,german,english]{babel}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -44,7 +43,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % EDOC THESIS TEMPLATE: Variant 2.0 -> Utopia, Gabarrit A (lighter pages)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\usepackage{fourier} % Utopia font-typesetting including mathematical formula compatible with newer TeX-Distributions (>2010)
+% \usepackage{fourier-otf} % Utopia font-typesetting including mathematical formula compatible with newer TeX-Distributions (>2010)
 %\usepackage{utopia} % on older systems -> use this package instead of fourier in combination with mathdesign for better looking results
 %\usepackage[adobe-utopia]{mathdesign}
 \setlength{\textwidth}{146.8mm} % = 210mm - 37mm - 26.2mm
@@ -108,10 +107,10 @@
 \usepackage[final]{pdfpages}
 \else
 \usepackage{calc}
-\usepackage{breakurl}
-\usepackage[nlwarning=false]{hypdvips}
-\usepackage{backref}
-\renewcommand*{\backref}[1]{}
+% \usepackage{breakurl}
+% \usepackage[nlwarning=false]{hypdvips}
+% \usepackage{backref}
+% \renewcommand*{\backref}[1]{}
 \fi
 \usepackage{bookmark}
 
@@ -141,10 +140,11 @@
  	  {\begin{tikzpicture}[remember picture,overlay]
     \node[yshift=-8cm] at (current page.north west)
       {\begin{tikzpicture}[remember picture, overlay]
-        \draw[fill=black] (0,0) rectangle(35.5mm,15mm);
-        \node[anchor=north east,yshift=-7.2cm,xshift=34mm,minimum height=30mm,inner sep=0mm] at (current page.north west)
-        {\parbox[top][30mm][t]{15mm}{\raggedleft \rule{0cm}{0.6cm}\color{white}\chapterlabel}};  %the empty rule is just to get better base-line alignment
-        \node[anchor=north west,yshift=-7.2cm,xshift=37mm,text width=\textwidth,minimum height=30mm,inner sep=0mm] at (current page.north west)
+        \draw[fill=black] (0,7.5mm) rectangle(35.5mm,7.5mm+30pt);
+        \node[anchor=north east,yshift=-73mm,xshift=34mm,minimum height=30mm,inner sep=0mm] at (current page.north west)
+          % {\parbox[top][30mm][t]{30mm}{\raggedleft \rule{0cm}{0.6cm}\color{white}\chapterlabel}};
+          {\parbox[top][30mm][t]{15mm}{\raggedleft \rule{0cm}{0mm}\color{white}\chapterlabel}};  %the empty rule is just to get better base-line alignment
+        \node[anchor=north west,yshift=-72mm,xshift=37mm,text width=\textwidth,minimum height=30mm,inner sep=0mm] at (current page.north west)
               {\parbox[top][30mm][t]{\textwidth}{\rule{0cm}{0.6cm}\color{black}#1}};
        \end{tikzpicture}
       };
@@ -169,7 +169,7 @@
 	  \begin{tikzpicture}[remember picture,overlay]
     \node[anchor=north west,xshift=-65mm,yshift=-6.9cm-\value{myparts}*20mm] at (current page.north east) % for unknown reasons: 3mm missing -> 65 instead of 62
       {\begin{tikzpicture}[remember picture, overlay]
-        \draw[fill=black] (0,0) rectangle(62mm,20mm);   % -\value{myparts}\unitlength
+        \draw[fill=black] (0,1) rectangle(62mm,20mm);   % -\value{myparts}\unitlength
         \node[anchor=north west,yshift=-6.1cm-\value{myparts}*\unitlength,xshift=-60.5mm,minimum height=30mm,inner sep=0mm] at (current page.north east)
         {\parbox[top][30mm][t]{55mm}{\raggedright \color{white}Part \partlabel \rule{0cm}{0.6cm}}};  %the empty rule is just to get better base-line alignment
         \node[anchor=north east,yshift=-6.1cm-\value{myparts}*\unitlength,xshift=-63.5mm,text width=\textwidth,minimum height=30mm,inner sep=0mm] at (current page.north east)
@@ -183,8 +183,10 @@
 
 \usepackage{amsmath}
 \usepackage{amsfonts}
-\usepackage{amssymb}
+% \usepackage{amssymb}
 \usepackage{mathtools}
+\usepackage{fourier-otf} % Utopia font-typesetting including mathematical formula compatible with newer TeX-Distributions (>2010)
+
 % Fix the problem with delimiter size caused by fourier and amsmath packages.
 \makeatletter
 \def\resetMathstrut@{%
@@ -193,6 +195,5 @@
       \def\@tempb##1"##2##3{\the\textfont"##3\char"}%
       \expandafter\@tempb\meaning\@tempa \relax
   }%
-  \ht\Mathstrutbox@1.2\ht\z@ \dp\Mathstrutbox@1.2\dp\z@
-}
+  \ht\Mathstrutbox@1.2\ht\z@ \dp\Mathstrutbox@1.2\dp\z@}
 \makeatother
