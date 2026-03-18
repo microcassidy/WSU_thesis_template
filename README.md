@@ -1,36 +1,13 @@
-# EPFL PhD Thesis Template
+This is a fork of the [EPFL Thesis Template](https://github.com/glederrey/EPFL_thesis_template), adapted for usage at the University of Western Sydney University (WSU).
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![LaTeX](https://img.shields.io/badge/LaTeX-Template-blue.svg)](https://www.latex-project.org/)
-[![Overleaf](https://img.shields.io/badge/Overleaf-Compatible-green.svg)](https://www.overleaf.com/)
-
-An **unofficial** LaTeX template for EPFL PhD theses.
+This is not an official template of WSU
 
 ## 🚀 Quick Start
 
-### Using Overleaf (Recommended)
-
-**Option 1: Direct Upload**
-1. Download this repository as a ZIP file
-2. Upload to [Overleaf](https://www.overleaf.com/)
-3. Set compiler to **pdfLaTeX** and TeX Live version to **2025**
-4. Set `my_thesis.tex` as the main document
-5. Start writing your thesis!
-
-**Option 2: GitHub Integration (Recommended for version control)**
-1. Fork this repository or create a new repository using this template
-2. In Overleaf, create a new project and select "Import from GitHub"
-3. Connect your GitHub account and select your thesis repository
-4. Set compiler to **pdfLaTeX** and TeX Live version to **2025**
-5. Set `my_thesis.tex` as the main document
-6. Enable sync to keep your GitHub repo and Overleaf project synchronized
-
-> **💡 Tip**: Using GitHub integration allows you to maintain version control, collaborate with supervisors, and have a backup of your work outside Overleaf.
-
 ### Local Installation
-1. Clone this repository: `git clone https://github.com/glederrey/EPFL_thesis_template.git`
-2. Ensure you have a recent LaTeX distribution (TeX Live 2020+ recommended)
-3. Compile with: `pdflatex my_thesis.tex`
+1. Clone this repository
+2. Ensure you have a recent LaTeX distribution (TeX Live 2026 recommended)
+3. Compile with: `make` or `latexmk`
 
 ## 📁 Repository Structure
 
@@ -39,6 +16,7 @@ EPFL_thesis_template/
 ├── my_thesis.tex                      # Main document file
 ├── my_thesis.pdf                      # Example output
 ├── settings/
+│   ├── variables.tex     # Change the variables in this file to your own details
 │   ├── settings_epfl_template.tex     # Core template settings
 │   └── settings_custom.tex            # Your custom packages/settings
 ├── content/
@@ -61,8 +39,9 @@ EPFL_thesis_template/
 │       ├── biblio.tex                 # Bibliography
 │       └── cv.tex                     # Curriculum Vitae
 ├── assets/                            # Images and figures
-├── utopia_font/                       # Custom font files
-└── .gitignore
+├── .gitignore
+└── .latexmk                           # information for latexmk
+
 ```
 
 ## 📝 Getting Started with Your Thesis

@@ -1,9 +1,19 @@
+\newcommand{\cat}[4]{#1#3#2#4} %item1 item2 itemseparator lineseparator
+\newcommand{\personlist}[2]{%
+% personlist:
+% concatenate Person and Role with a line seaparator for each element in list
+% \personlist{Billy Bloggs}{King}returns Billy Bloggs, King
+  \foreach \x in #1 {%
+    \cat{\x}{#2}{,\space}{\newline}%
+  }%
+}%
+
+
 \begin{titlepage}
 \begin{center}
 %\large
 \sffamily
-
-
+%arg1:list arg2:suffix
 \null\vspace{2cm}
 {\huge FIRST LINE OF TITLE \\[12pt] SECOND LINE OF TITLE} \\[24pt] 
 \textcolor{gray}{\small{THIS IS A TEMPORARY TITLE PAGE \\ It will be replaced for the final print by a version \\ provided by the registrar's office.}}
@@ -26,17 +36,14 @@
 	\null\hspace{3em}\myName\\[9pt]
 %
 \small
-acceptée sur proposition du jury:\\[4pt]
+Thesis Jury:\\[4pt]
 %
-    Prof Name Surname, jury president\\
-    Prof Name Surname, thesis supervisor\\
-    Prof Name Surname, reviewer\\
-    Prof Name Surname, reviewer\\
-    Prof Name Surname, reviewer\\[12pt]
-%
+\personlist{\juryPresident}{Jury President}
+\personlist{\thesisSupervisors}{Thesis Supervisor}
+\personlist{\thesisReviewers}{Thesis Reviewer}
+\newline
 Sydney, WSU, \the\year}
 \end{tabular}
 \end{center}
 \vspace{2cm}
 \end{titlepage}
-% \maketitle
